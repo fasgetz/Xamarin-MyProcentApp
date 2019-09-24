@@ -6,6 +6,15 @@ using Xamarin.Forms;
 
 namespace ProcentAppXamarin.Converters
 {
+
+    public static class test
+    {
+        public static double Get(double a)
+        {
+            return Convert.ToDouble(a);
+        }
+    }
+
     public class NullValueToVisibilityConverterDouble : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

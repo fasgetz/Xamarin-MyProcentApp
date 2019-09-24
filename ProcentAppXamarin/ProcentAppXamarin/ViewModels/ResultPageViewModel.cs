@@ -55,6 +55,7 @@ namespace ProcentAppXamarin.ViewModels
         public ResultPageViewModel(MainPageModel model)
         {
             this.model = model;
+
             ProcentLogic logic = new ProcentLogic();
             mylist = logic.StartInvest(model);
 
