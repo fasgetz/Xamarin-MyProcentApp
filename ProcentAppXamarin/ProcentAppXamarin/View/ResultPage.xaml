@@ -7,12 +7,32 @@
              mc:Ignorable="d"
              Title="Результаты"
              x:Class="ProcentAppXamarin.View.ResultPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="10, 10">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Стартовый капитал: "/>
+                <Label Text="{Binding StartCapital}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Заработано с %: "/>
+                <Label Text="{Binding EarnedSum}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Всего: "/>
+                <Label Text="{Binding AllCapital}"/>
+            </StackLayout>
             <dg:DataGrid BackgroundColor="White" HeaderBackground="#E0E6F8" HeaderHeight="35" ItemsSource="{Binding mylist}">
                 <dg:DataGrid.Columns>
-                    <dg:DataGridColumn Title="Месяц" PropertyName="numb" Width="35*"/>
-                    <dg:DataGridColumn Title="Имя" PropertyName="name" Width="65*"/>
+                    <dg:DataGridColumn Title="Месяц" PropertyName="NumbMonth" Width="20*"/>
+                    <dg:DataGridColumn Title="Доход с %" PropertyName="InterestIncome" Width="40*"/>
+                    <dg:DataGridColumn Title="Доход ЗП + %" PropertyName="TotalIncome" Width="40*"/>
                 </dg:DataGrid.Columns>
                 <dg:DataGrid.RowsBackgroundColorPalette>
                     <dg:PaletteCollection>

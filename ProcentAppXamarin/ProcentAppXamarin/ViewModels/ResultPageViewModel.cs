@@ -1,4 +1,5 @@
 ﻿using ProcentAppXamarin.Models;
+using ProcentAppXamarin.ProgramLogic;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +12,32 @@ namespace ProcentAppXamarin.ViewModels
         #region Свойства
 
         private MainPageModel model;
+
+        public ulong StartCapital
+        {
+            get => model.StartSum;
+        }
+        public double _EarnedSum;
+        public double EarnedSum
+        {
+            get => _EarnedSum;
+            set
+            {
+                _EarnedSum = value;
+                OnPropertyChanged("EarnedSum");
+            }
+        }
+
+        public double _AllCapital;
+        public double AllCapital
+        {
+            get => _AllCapital;
+            set
+            {
+                _AllCapital = value;
+                OnPropertyChanged("AllCapital");
+            }
+        }
 
         private List<Result> _mylist;
         public List<Result> mylist
@@ -25,36 +52,13 @@ namespace ProcentAppXamarin.ViewModels
 
         #endregion
 
-        #region Вспомогательные методы
-
-        /// <summary>
-        /// Стартовый метод для вычислений
-        /// </summary>
-        private void StartInvesting(MainPageModel model)
-        {
-            double residue = 0; // Остаточная сумма
-            double startcap = model.StartSum; // Стартовый капитал
-
-            bool a = true;
-        }
-
-        #endregion
-
         public ResultPageViewModel(MainPageModel model)
         {
             this.model = model;
-            mylist = new List<Result>();
-            int s = 0;
+            mylist = ProcentLogic.StartInvest(model);
 
-            for (int i = 0; i <= 30; i++)
-            {
-                //Random r = new Random();
-                //r.Next(0, 100);
-
-
-                Result res = new Result() { numb = s += 1000, name = "Olegser" };
-                mylist.Add(res); 
-            }          
+            EarnedSum = ProcentLogic.EarnedSum;
+            AllCapital = ProcentLogic.AllCapital;
         }
     }
 }

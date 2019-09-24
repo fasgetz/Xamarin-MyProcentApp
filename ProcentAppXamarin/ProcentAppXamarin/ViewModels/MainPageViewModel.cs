@@ -92,7 +92,10 @@ namespace ProcentAppXamarin.ViewModels
         public async void GoToResultPage()
         {
             if (IsPropertiesRequired())
-                await Navigation.PushAsync(new ResultPage(model));
+                if (model.EndDate >= DateTime.Now.AddMonths(1))
+                    await Navigation.PushAsync(new ResultPage(model));
+                else
+                    await App.Current.MainPage.DisplayAlert("Ошибка", "Вы должны выбрать больше одного месяца", "ОК");
             else
                 await App.Current.MainPage.DisplayAlert("Ошибка", "Заполните необходимые поля", "ОК");
         }

@@ -6,7 +6,8 @@ namespace ProcentAppXamarin.Models
 {
     public class Result
     {
-        public int numb { get; set; }
-        public string name { get; set; }
+        public int NumbMonth { get; set; }
+        public double InterestIncome { get; set; }
+        public double TotalIncome { get; set; }
     }
 }
