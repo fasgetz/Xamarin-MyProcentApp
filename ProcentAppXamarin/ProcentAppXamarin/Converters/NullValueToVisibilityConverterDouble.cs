@@ -9,11 +9,11 @@ namespace ProcentAppXamarin.Converters
     public class NullValueToVisibilityConverterDouble : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if ((double)value != 0)
-                return (double)value;
+        {                                
+            if (test.Get((double)value) == 0)
+                return null;
 
-            return null;
+            return value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

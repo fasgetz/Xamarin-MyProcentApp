@@ -10,7 +10,7 @@
              x:Class="ProcentAppXamarin.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style TargetType="Entry">
+            <Style TargetType="local:CustomEntry">
                 <Setter Property="Keyboard" Value="Numeric"/>
                 <Setter Property="MaxLength" Value="12"/>
             </Style>
@@ -21,11 +21,11 @@
     </ContentPage.Resources>
     <StackLayout>
         <StackLayout Padding="15, 5">
-            <Entry Placeholder="Стартовая сумма" Text="{Binding StartSum, Mode=TwoWay, Converter={StaticResource ULONGconv}}"/>
-            <Entry Placeholder="Процент" MaxLength="5" Text="{Binding Procent, Mode=TwoWay, Converter={StaticResource doubleConv}}"/>
+            <local:CustomEntry Placeholder="Стартовая сумма" Text="{Binding StartSum, Mode=TwoWay, Converter={StaticResource ULONGconv}}"/>
+            <Entry Keyboard="Default" Placeholder="Процент" MaxLength="5" Text="{Binding Procent, Mode=TwoWay, Converter={StaticResource doubleConv}}"/>
             <local:DatePickerCtrl x:Name="datepick" Format="D" Date="{Binding EndDate, Mode=TwoWay, Converter={StaticResource DateTimeConv}}" Placeholder="Выберите дату"/>
-            <Entry Placeholder="Капитализация" Text="{Binding Capitalize, Mode=TwoWay, Converter={StaticResource ULONGconv}}"/>
-            <Entry Placeholder="Докладывать с ЗП" Text="{Binding PutOffSum, Mode=TwoWay, Converter={StaticResource ULONGconv}}"/>
+            <local:CustomEntry Placeholder="Капитализация" Text="{Binding Capitalize, Mode=TwoWay, Converter={StaticResource ULONGconv}}"/>
+            <local:CustomEntry Placeholder="Докладывать с ЗП" Text="{Binding PutOffSum, Mode=TwoWay, Converter={StaticResource ULONGconv}}"/>
         </StackLayout>
         <Button VerticalOptions="EndAndExpand" Text="Результаты" Command="{Binding test}"/>
     </StackLayout>
