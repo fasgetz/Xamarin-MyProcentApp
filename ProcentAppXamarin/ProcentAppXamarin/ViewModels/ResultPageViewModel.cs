@@ -37,7 +37,7 @@ namespace ProcentAppXamarin.ViewModels
                 //r.Next(0, 100);
 
 
-                Result res = new Result() { numb = s += 1000, name = "Olegs" };
+                Result res = new Result() { numb = s += 1000, name = "Olegser" };
                 mylist.Add(res); 
             }          
         }

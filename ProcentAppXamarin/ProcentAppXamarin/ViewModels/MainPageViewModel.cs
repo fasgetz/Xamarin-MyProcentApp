@@ -91,7 +91,7 @@ namespace ProcentAppXamarin.ViewModels
 
         public async void GoToResultPage()
         {
-            if (!IsPropertiesRequired())
+            if (IsPropertiesRequired())
                 await Navigation.PushAsync(new ResultPage(model));
             else
                 await App.Current.MainPage.DisplayAlert("Ошибка", "Заполните необходимые поля", "ОК");
