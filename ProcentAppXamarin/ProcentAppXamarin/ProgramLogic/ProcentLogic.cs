@@ -9,22 +9,22 @@ namespace ProcentAppXamarin.ProgramLogic
     /// <summary>
     /// Для вычислений в контексте программы
     /// </summary>
-    public static class ProcentLogic
+    public class ProcentLogic
     {
 
-        public static double EarnedSum { get; set; }
-        public static double AllCapital { get; set; }
+        public double EarnedSum { get; set; }
+        public double AllCapital { get; set; }
 
         /// <summary>
         /// Метод, который вычисляет процент
         /// </summary>
         /// <returns>Возвращает процент от суммы</returns>
-        private static double GetProcent(double sum, double procent)
+        private double GetProcent(double sum, double procent)
         {
             return ((sum / 100) * procent);
         }
 
-        public static List<Result> StartInvest(MainPageModel model)
+        public List<Result> StartInvest(MainPageModel model)
         {
             double residue = 0; // Остаточная сумма
             double startcap = model.StartSum; // Стартовый капитал

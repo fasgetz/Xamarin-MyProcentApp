@@ -55,10 +55,11 @@ namespace ProcentAppXamarin.ViewModels
         public ResultPageViewModel(MainPageModel model)
         {
             this.model = model;
-            mylist = ProcentLogic.StartInvest(model);
+            ProcentLogic logic = new ProcentLogic();
+            mylist = logic.StartInvest(model);
 
-            EarnedSum = ProcentLogic.EarnedSum;
-            AllCapital = ProcentLogic.AllCapital;
+            EarnedSum = logic.EarnedSum;
+            AllCapital = logic.AllCapital;
         }
     }
 }
