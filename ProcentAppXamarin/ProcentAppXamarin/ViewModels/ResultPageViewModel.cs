@@ -34,6 +34,8 @@ namespace ProcentAppXamarin.ViewModels
         {
             double residue = 0; // Остаточная сумма
             double startcap = model.StartSum; // Стартовый капитал
+
+            bool a = true;
         }
 
         #endregion
