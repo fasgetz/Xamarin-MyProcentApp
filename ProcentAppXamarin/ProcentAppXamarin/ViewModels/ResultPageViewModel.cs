@@ -25,6 +25,19 @@ namespace ProcentAppXamarin.ViewModels
 
         #endregion
 
+        #region Вспомогательные методы
+
+        /// <summary>
+        /// Стартовый метод для вычислений
+        /// </summary>
+        private void StartInvesting(MainPageModel model)
+        {
+            double residue = 0; // Остаточная сумма
+            double startcap = model.StartSum; // Стартовый капитал
+        }
+
+        #endregion
+
         public ResultPageViewModel(MainPageModel model)
         {
             this.model = model;
