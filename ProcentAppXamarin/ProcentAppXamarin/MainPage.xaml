@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Главная страница"
+             xmlns:converter="clr-namespace:ProcentAppXamarin.Converters;assembly=ProcentAppXamarin"
+             xmlns:local="clr-namespace:ProcentAppXamarin.MyControls;assembly=ProcentAppXamarin"
+             x:Class="ProcentAppXamarin.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="Keyboard" Value="Numeric"/>
+                <Setter Property="MaxLength" Value="12"/>
+            </Style>
+            <converter:NullValueToVisibilityConverterULONG x:Key="ULONGconv" />
+            <converter:NullValueToVisibilityConverterDouble x:Key="doubleConv" />
+            <converter:NullValueToVisibilityConverterDateTime x:Key="DateTimeConv" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <StackLayout Padding="15, 5">
+            <Entry Placeholder="Стартовая сумма" Text="{Binding StartSum, Mode=TwoWay, Converter={StaticResource ULONGconv}}"/>
+            <Entry Placeholder="Процент" MaxLength="5" Text="{Binding Procent, Mode=TwoWay, Converter={StaticResource doubleConv}}"/>
+            <local:DatePickerCtrl x:Name="datepick" Format="D" Date="{Binding EndDate, Mode=TwoWay, Converter={StaticResource DateTimeConv}}" Placeholder="Выберите дату"/>
+            <Entry Placeholder="Капитализация" Text="{Binding Capitalize, Mode=TwoWay, Converter={StaticResource ULONGconv}}"/>
+            <Entry Placeholder="Докладывать с ЗП" Text="{Binding PutOffSum, Mode=TwoWay, Converter={StaticResource ULONGconv}}"/>
+        </StackLayout>
+        <Button VerticalOptions="EndAndExpand" Text="Результаты" Command="{Binding test}"/>
+    </StackLayout>
+
+</ContentPage>
